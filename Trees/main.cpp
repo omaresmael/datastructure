@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 class Node {
@@ -12,7 +13,7 @@ public:
         this->data = data;
 
     }
-    void insert(int value){
+    void insert(int value){ // insert a value in the binary tree 
         if (value <= data){
             if(left == NULL){
                 left = new Node(value);
