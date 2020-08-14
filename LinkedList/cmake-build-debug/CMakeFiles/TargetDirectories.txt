@@ -1,0 +1,3 @@
+D:/New folder/mergeTwoLinkedLists/cmake-build-debug/CMakeFiles/mergeTwoLinkedLists.dir
+D:/New folder/mergeTwoLinkedLists/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/New folder/mergeTwoLinkedLists/cmake-build-debug/CMakeFiles/rebuild_cache.dir
