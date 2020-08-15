@@ -1,7 +1,6 @@
 #include <iostream>
-
 using namespace std;
-
+auto count =0;
 class Node {
 private:
     Node* left = NULL;
@@ -13,7 +12,7 @@ public:
         this->data = data;
 
     }
-    void insert(int value){ // insert a value in the binary tree 
+    void insert(int value){
         if (value <= data){
             if(left == NULL){
                 left = new Node(value);
@@ -74,6 +73,28 @@ public:
 
 
     }
+    static void t1(Node* root)
+    {
+        if (!root)
+            return;
+        t1(root->left);
+        cout << root->data << " ";
+
+    }
+
+    static void t2(Node* root)
+    {
+        if (!root)
+            return;
+        cout << root->data << " ";
+        t2(root->right);
+    }
+    void topView() {
+        t1(this);
+        t2(this->right);
+
+    }
+
 
 };
 
@@ -81,19 +102,18 @@ public:
 
 
 int main() {
-    Node root(3);
-    root.insert(5);
-    root.insert(2);
+    Node root(5);
+    root.insert(3);
     root.insert(1);
-    root.insert(4);
-    root.insert(6);
     root.insert(7);
-    //root.insert(9);
+    root.insert(4);
+    //root.insert(6);
+    //root.insert(7);
 
 
 int height = 0;
-
-    cout << root.height(height);
+    root.topView();
+   // cout << root.height(height);
 
 
 
