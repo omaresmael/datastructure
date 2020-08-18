@@ -1,11 +1,15 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 auto count =0;
+
 class Node {
 private:
     Node* left = NULL;
     Node* right = NULL;
     int data;
+
+
 public:
     Node(int data)
     {
@@ -95,6 +99,25 @@ public:
 
     }
 
+    void levelOrder(queue<Node*> levelQueue) {
+        if(count == 0){
+            levelQueue.push(this);
+            count++;
+        }
+        if (levelQueue.empty())
+            return;
+        if(left != NULL){
+            levelQueue.push(left);
+        }
+        if(right != NULL){
+            levelQueue.push(right);
+        }
+
+        cout << levelQueue.front()->data << ' ';
+        levelQueue.pop();
+        levelQueue.front()->levelOrder(levelQueue);
+    }
+
 
 };
 
@@ -102,17 +125,21 @@ public:
 
 
 int main() {
-    Node root(5);
-    root.insert(3);
+
+    Node root(3);
+    root.insert(2);
+    root.insert(5);
     root.insert(1);
-    root.insert(7);
+    root.insert(6);
     root.insert(4);
-    //root.insert(6);
     //root.insert(7);
+    queue<Node*> levelQueue; // used for level order function
+
+    root.levelOrder(levelQueue);
 
 
 int height = 0;
-    root.topView();
+    //root.topView();
    // cout << root.height(height);
 
 
